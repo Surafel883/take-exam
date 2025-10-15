@@ -153,7 +153,7 @@ def login_google():
             "https://www.googleapis.com/auth/userinfo.email",
             "openid"
         ],
-        redirect_uri="http://127.0.0.1:5000/callback-google"
+        redirect_uri="http://127.0.0.1:5000/callback-googl"
     )
     authorization_url, state = flow.authorization_url(prompt="consent")
     session["state"] = state
@@ -601,4 +601,5 @@ cleaner_thread.start()
 # -----------------------------
 if __name__ == "__main__":
     app.run(debug=True)
+
 
