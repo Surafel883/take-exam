@@ -5,24 +5,89 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="google-adsense-account" content="ca-pub-8963702512690806">
   <title>Login / Signup</title>
-  <!-- Only the script goes in head -->
-  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8963702512690806"
-     crossorigin="anonymous"></script>
   <style>
-    /* Your existing styles... */
+    body {
+      background: linear-gradient(135deg, #4a90e2, #8e44ad);
+      font-family: "Poppins", sans-serif;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: 0;
+    }
+    .card {
+      background: #fff;
+      border-radius: 20px;
+      padding: 40px;
+      width: 380px;
+      text-align: center;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    }
+    h2 {
+      color: #333;
+      margin-bottom: 20px;
+    }
+    .google-btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      padding: 12px;
+      cursor: pointer;
+      transition: 0.3s;
+      background: #fff;
+      margin-bottom: 15px;
+      text-decoration: none;
+      color: #555;
+      font-weight: 600;
+    }
+    .google-btn:hover {
+      background: #f7f7f7;
+    }
+    .google-btn img {
+      width: 22px;
+      height: 22px;
+    }
+    form {
+      display: none;
+      flex-direction: column;
+      gap: 10px;
+      margin-top: 15px;
+    }
+    form.active {
+      display: flex;
+    }
+    input {
+      padding: 10px;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+    }
+    button {
+      padding: 10px;
+      border-radius: 8px;
+      border: none;
+      background: #4a90e2;
+      color: white;
+      font-weight: 600;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+    button:hover {
+      background: #357ABD;
+    }
+    .toggle-link {
+      margin-top: 10px;
+      color: #4a90e2;
+      cursor: pointer;
+      font-size: 0.9rem;
+      text-decoration: underline;
+    }
   </style>
 </head>
 <body>
-  <!-- Loading Screen -->
-  <div id="loadingScreen">
-    <div>Welcome</div>
-    <div class="dots">
-      <div></div><div></div><div></div>
-    </div>
-  </div>
-
-  <!-- Main Login Card -->
-  <div class="card" id="mainCard">
+  <div class="card">
     <h2>Welcome</h2>
 
     <!-- Google Login -->
@@ -49,28 +114,7 @@
     </form>
   </div>
 
-  <!-- Top Banner Ad - Place it wherever you want visible in body -->
-  <div style="text-align:center; margin: 20px 0;">
-    <ins class="adsbygoogle"
-         style="display:block"
-         data-ad-client="ca-pub-8963702512690806"
-         data-ad-slot="7778754992"
-         data-ad-format="auto"
-         data-full-width-responsive="true"></ins>
-    <script>
-         (adsbygoogle = window.adsbygoogle || []).push({});
-    </script>
-  </div>
-
   <script>
-    // Show loading for 3 seconds then show login
-    window.addEventListener('load', () => {
-      setTimeout(() => {
-        document.getElementById('loadingScreen').style.display = 'none';
-        document.getElementById('mainCard').classList.add('visible');
-      }, 9000);
-    });
-
     function toggleForms() {
       document.getElementById('login-form').classList.toggle('active');
       document.getElementById('signup-form').classList.toggle('active');
