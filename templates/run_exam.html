@@ -127,16 +127,29 @@ function startExam() {
 
 function startTimer(seconds) {
   timeLeft = seconds;
+
   timerInterval = setInterval(() => {
-    let m = Math.floor(timeLeft / 60), s = timeLeft % 60;
+    let m = Math.floor(timeLeft / 60);
+    let s = timeLeft % 60;
+
     timer.textContent = `⏱ Time left: ${m}:${s.toString().padStart(2, '0')}`;
-    if (timeLeft <= 0) {
-      clearInterval(timerInterval);
-      submitExam();
-    }
+
+    // decrease time first
     timeLeft--;
+
+    // AUTO SUBMIT + SHOW TEXT
+    if (timeLeft < 0) {
+      clearInterval(timerInterval);
+
+      // auto click the submit button
+      document.getElementById("submitBtn").click();
+
+      // show message
+      alert("⏳ Time is up! Your exam has been auto-submitted.");
+    }
   }, 1000);
 }
+
 
 function submitExam() {
   if (banned || submitted) return;
